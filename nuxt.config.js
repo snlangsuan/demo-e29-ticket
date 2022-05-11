@@ -12,6 +12,12 @@ export default {
   generate: {
     fallback: true
   },
+  static: {
+    prefix: '/demo-e29-ticket/'
+  },
+  publicRuntimeConfig: {
+    prefixURL: '/demo-e29-ticket'
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
