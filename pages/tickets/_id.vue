@@ -20,7 +20,7 @@
             <div class="text-caption">GA Tier 3</div>
           </v-col>
           <v-col cols="4" class="text-center">
-            <div class="text-caption">Amount</div>
+            <div class="text-caption">Cost</div>
             <div class="text-caption">THB 1,200</div>
           </v-col>
         </v-row>
