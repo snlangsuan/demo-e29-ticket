@@ -8,18 +8,9 @@ export default {
   target: 'static',
   router: {
     base: '/demo-e29-ticket/',
-    routes: [
-      {
-        name: 'index',
-        path: '/',
-        component: 'pages/index.vue',
-      },
-      {
-        name: 'ticket-details',
-        path: '/tickets/:id',
-        component: 'pages/tickets/_id.vue',
-      },
-    ],
+  },
+  generate: {
+    fallback: true
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
