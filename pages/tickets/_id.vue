@@ -1,5 +1,5 @@
 <template>
-  <div class="ticket-page">
+  <div v-resize="onResize" class="ticket-page" :style="{ height: contentHeight + 'px' }">
     <div v-if="hasTicket" class="ticket-page__ticket">
       <div class="ticket-page__top elevation-2">
         <div class="ticket-page__image"  :style="{ backgroundImage: 'url(' + ticketThumbnail  + ')' }"></div>
@@ -54,6 +54,7 @@ export default {
   name: 'TicketDetailsPage',
   data() {
     return {
+      contentHeight: 100,
     }
   },
   computed: {
@@ -67,8 +68,11 @@ export default {
       return this.$route.params.id === '001'
     },
   },
-  mounted() {
-
+  methods: {
+    onResize() {
+      const windowHeight = window.innerHeight
+      this.contentHeight = windowHeight
+    },
   }
 }
 </script>
@@ -79,8 +83,10 @@ export default {
   // background-size: cover;
   // background-position: top center;
   background-color: rgba(0, 0, 0, 0.06);
-  height: 100%;
+  // height: 100%;
   padding: 16px;
+  position: relative;
+  min-height: 480px;
 
   &__mismatch {
     height: 100%;
@@ -93,7 +99,6 @@ export default {
     width: 100%;
     max-width: 480px;
     height: 100%;
-    min-height: 800px;
     margin: auto;
     border-radius: 4px;
     overflow: hidden;
