@@ -34,7 +34,7 @@
         </div>
         <div :style="{ fontSize: '0.8rem', margin: '16px' }">
           <v-row style="width: 100%" no-gutters>
-            <v-col cols="6" class="text-left pb-2 grey--text text--darken-2">AMOUNT PAID (E29)</v-col>
+            <v-col cols="6" class="text-left pb-2 grey--text text--darken-2">AMOUNT PAID (THB)</v-col>
             <v-col cols="6" class="text-right pb-2">{{ transaction.amount }}</v-col>
             <v-col cols="6" class="text-left pb-2">PAYED BY</v-col>
             <v-col cols="6" class="text-right pb-2">{{ walletName }}</v-col>
@@ -52,7 +52,7 @@
         <div class="store-payment-page__name">{{ walletName }}</div>
         <div class="store-payment-page__balance">
           {{ walletBalance | number_format }}
-          <span class="store-payment-page__currency">E29</span>
+          <span class="store-payment-page__currency">THB</span>
         </div>
         <div v-if="transactionRef" class="store-payment-page__ref">Ref. {{ transactionRef }}</div>
       </div>
@@ -61,7 +61,7 @@
           <div class="text-caption grey--text">Store Name</div>
           <v-text-field :value="storeName" color="grey" dense outlined disabled></v-text-field>
           <div class="text-caption grey--text">Amount</div>
-          <v-text-field v-model="paymentAmount" :rules="[(v) => !v || Number(v) < walletBalance || 'Insufficient balance']" placeholder="00.00" suffix="E29" dense outlined></v-text-field>
+          <v-text-field v-model="paymentAmount" :rules="[(v) => !v || Number(v) < walletBalance || 'Insufficient balance']" placeholder="00.00" suffix="THB" dense outlined></v-text-field>
           <div class="text-caption grey--text">Note</div>
           <v-text-field v-model="paymentNote" placeholder="Pay for e.g. mango sticky rice" dense outlined></v-text-field>
           <v-btn :disabled="!valid || !paymentAmount" color="orange white--text" block @click="onReceivePay">charge</v-btn>
