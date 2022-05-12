@@ -61,7 +61,7 @@
           <div class="text-caption grey--text">Store Name</div>
           <v-text-field :value="storeName" color="grey" dense outlined disabled></v-text-field>
           <div class="text-caption grey--text">Amount</div>
-          <v-text-field v-model="paymentAmount" :rules="[(v) => !v || Number(v) < walletBalance || 'Insufficient balance']" placeholder="00.00" suffix="THB" dense outlined></v-text-field>
+          <v-text-field v-model="paymentAmount" type="number" :rules="[(v) => !v || Number(v) < walletBalance || 'Insufficient balance']" placeholder="00.00" suffix="THB" dense outlined></v-text-field>
           <div class="text-caption grey--text">Note</div>
           <v-text-field v-model="paymentNote" placeholder="Pay for e.g. mango sticky rice" dense outlined></v-text-field>
           <v-btn :disabled="!valid || !paymentAmount" color="orange white--text" block @click="onReceivePay">charge</v-btn>
