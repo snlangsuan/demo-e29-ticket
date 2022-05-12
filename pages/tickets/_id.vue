@@ -1,15 +1,15 @@
 <template>
   <div v-resize="onResize" class="ticket-page" :style="{ height: contentHeight + 'px' }">
     <div v-if="hasTicket" class="ticket-page__ticket">
-      <div class="ticket-page__top elevation-2">
+      <div class="ticket-page__top">
         <div class="ticket-page__image"  :style="{ backgroundImage: 'url(' + ticketThumbnail  + ')' }"></div>
         <div class="ticket-page__title">
           <div>E29 Music & Arts Festival - Weekend 1</div>
           <div class="ticket-page__sub-title">Chiang Rai, Thailand</div>
         </div>
       </div>
-      <div class="ticket-page__bottom elevation-2">
-        <div class="ticket-page--border-dash"></div>
+      <div class="ticket-page__rip"></div>
+      <div class="ticket-page__bottom">
         <v-row>
           <v-col cols="4" class="text-center">
             <div class="text-caption">Date</div>
@@ -82,7 +82,7 @@ export default {
   // background-image: url('~assets/images/ticket-bg.png');
   // background-size: cover;
   // background-position: top center;
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: rgba(0, 0, 0, 0.01);
   // height: 100%;
   padding: 16px;
   position: relative;
@@ -105,29 +105,33 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
   }
 
   &__top {
     width: 100%;
     flex: 1;
-    background-color: rgba(0, 0, 0, 0.02);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    background-color: #ffffff;
+    // border-bottom-left-radius: 10px;
+    // border-bottom-right-radius: 10px;
     position: relative;
     overflow: hidden;
+    padding-bottom: 2px;
   }
 
   &__image {
     background-size: cover;
     background-position: top center;
     height: 100%;
+    background-color: rgba(0, 0, 0, 0.02);
+    margin-bottom: 2px;
   }
 
   &__title {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 2px;
     padding: 16px 24px;
     background-color: #ff9800;
     color: #ffffff;
@@ -143,19 +147,41 @@ export default {
     position: relative;
     padding: 16px;
     background-color: #ffffff;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    // border-top-left-radius: 10px;
+    // border-top-right-radius: 10px;
   }
 
-  &--border-dash {
-    position: absolute;
-    left: 10px;
-    right: 10px;
-    top: 0;
-    height:1px;
-    background-image:linear-gradient(to right, #dddddd 0%, #dddddd 30%, transparent 70%);
-    background-size:28px 1px;
-    background-repeat:repeat-x;
+  &__rip {
+    background-color: #ffffff;
+    height: 20px;
+    margin: 0 8px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAACCAYAAAB7Xa1eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuOWwzfk4AAAAaSURBVBhXY5g7f97/2XPn/AcCBmSMQ+I/AwB2eyNBlrqzUQAAAABJRU5ErkJggg==);
+    background-size: 4px 2px;
+    background-repeat: repeat-x;
+    background-position: center;
+    position: relative;
+    box-shadow: 0 1px 0 0 #fff, 0 -1px 0 0 #fff;
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      border: 5px solid transparent;
+      border-top-color: #fff;
+      border-right-color: #fff;
+      border-radius: 100%;
+      pointer-events:none;
+    }
+    &:before {
+      left: -8px;
+    }
+    &:after {
+      transform: translate(-50%, -50%) rotate(225deg);
+      right: -33px;
+    }
   }
 }
 </style>
