@@ -1,0 +1,1 @@
+window.__NUXT__=(function(a){return {staticAssetsBase:"\u002Fdemo-e29-ticket\u002F_nuxt\u002Fstatic\u002F1652413568",layout:"default",error:a,serverRendered:true,routePath:"\u002Fstores",config:{prefixURL:"\u002Fdemo-e29-ticket",_app:{basePath:"\u002Fdemo-e29-ticket\u002F",assetsPath:"\u002Fdemo-e29-ticket\u002F_nuxt\u002F",cdnURL:a}}}}(null));
